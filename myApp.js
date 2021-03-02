@@ -6,6 +6,8 @@ app.use(helmet.frameguard({action:'deny'}));
 app.use(helmet.xssFilter());
 app.use(helmet.noSniff());
 app.use(helmet.ieNoOpen());
+var ninetyDaysInMilliseconds = 90*24*60*60*1000;
+app.use(helmet.hsts({maxAge: ninetyDaysInMilliseconds, force: true}));
 
 
 
